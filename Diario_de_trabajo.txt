@@ -1,0 +1,110 @@
+--- PROYECTO HOMEAWAY ---
+
+·Front-End: HTML, CSS, JavaScript, BootStrap.
+·Back-End: PHP(Laravel).
+·Bases de datos: MySQL.
+·Despliegue: Docker.
+·Control de versiones: Github.
+·Documentación: MarkDown.
+
+- Uso de Makefile. 
+
+-- VENTAJAS USAR LARAVEL --
+
+1. Estructura organizada.
+
+Laravel impone una arquitectura MVC (Model-View-Controller) que fuerza a separar logica:
+·app/Models/Property.php (Base de datos)
+·app/Http/Controllers/PropertyController.php (Logica)
+·resources/views/properties.blade.php (HTML)
+
++ Beneficio: Proyecto mas mantenible y escalable, incluso con equipo.
+
+2. Funcionalidades listas en minutos.
+
+Laravel incluye herramientas integradas que en PHP puro tendrías que programar desde cero:
+
+·Autenticacion: 5 min -> php artisan make:auth
+·Conexion a DB: Config en .env + ORM Eloquent.
+·Formularios seguros: CSRF token automatico.
+·Enrutamiento: Rutas declarativas routes/web.php
+·Envio de emails: Integracion con Mailtrap/ Sendgrid en 2 lineas.
+
++ Beneficio: En 1 dia con Laravel haces lo que en PHP puro te tomaria una semana.
+
+3. Bloquen ORM (Manipulacion de base de datos sin SQL).
+
+Laravel (Eloquent): $properties = Property::where('price', '>', 100)->get();
+
+·Sin escribir SQL.
+·Migraciones para crear tablas (php artisan make:migration).
+·Relaciones entre tablas (ej. user-> properties()) con metodos como hasMany().
+
++ Beneficio: Menos errores, codigo mas legible y cambios en la DB sin romper la app.
+
+4. Seguridad automatica.
+
+Laravel protege contra vulnerabilidades comunes que en PHP puro debes manejar manualmente:
+
+·XSS: Escapa variables en Blade ( {{ $user_input }} ).
+·CSRF: Token en formularios (automatico).
+·SQL Injection: Eloquent usa parametros preparados.
+·Hashing de contraseñas: bcrypt integrado.
+
++ Beneficio: No reinventar la rueda en seguridad. 
+
+5. Ecosistemas de paquetes (como "plugins").
+
+·Autenticacion social: Laravel Socialite(login con Google/Github).
+·Panel admin: Laravel Nova o Backpack.
+·Pagos: Laravel Cashier (Stripe).
+
++ Beneficio: Funcionalidades complejas en pocas lineas.
+
+6. Blade: Plantillas reutilizables.
+
+·PHP puro: Incluye archivos con <?php include 'header.php';?>.
+·Laravel (Blade):
+	@extends('layouts.app')
+	@section('content')
+	  <h1>{{ $property->title }}</h1>
+	@endsection
+
+·Herencia de layouts.
+·Componentes reutilizables (ej: <x-alert type="success">.
+
++ Beneficio: Frontend modular y facil de mantener. 
+
+7. Debugging y productividad.
+
+·Tinker: Consola interactiva para probar codigo (php artisan tinker).
+·Logging integrado: Errores se guardan en storage/logs.
+·Artisan CLI: Genera codigo, migraciones, tests.
+
+- Ejemplo: php artisan make:model Property -mcr
+Crea:
+	·Modelo (Property.php)
+	·Migracion (create_properties_table)
+	·Controlador (PropertyController.php)
+
++ Beneficio: Menos tiempo buscando errores. 
+
+
+---------------------
+
+	<24/04/2025>
+
+-- PASOS A SEGUIR -- 
+
+1. Crear la estructura inicial del proyecto.
+2. Como hacer el sistema de reservas y la logica del proyecto.
+3. Despliegue con Docker. 
+
+
+-- 1. Estructura inicial del proyecto --
+
+Instalar composer, basicamente levantando contenedores de docker pero el ordenado de la empresa
+Kaput.
+
+
+
